@@ -46,8 +46,8 @@
 #define DA_VERSION_DETAIL \
 	DA_VERSION_STR" built at: "__DATE__" "__TIME__
 
-#define DA_CONF_PATH "../conf/agent.xml"
-#define DA_LOG_DIR "../log/"
+#define DA_CONF_PATH "/etc/dtc/agent.xml"
+#define DA_LOG_DIR "/var/log/dtc"
 
 #define DA_LOG_DEFAULT  3
 #define DA_MBUF_SIZE DEF_MBUF_SIZE
@@ -472,6 +472,9 @@ static int da_pre_run(struct instance *dai) {
 	tv_update_date(-1, -1);
 	//init log
 	da_log_init(dai);
+
+	log_info("DTC AGENT init.");
+
 	if (daemonize) {
 		status = da_daemonize(1);
 		if (status != 0) {
@@ -646,6 +649,7 @@ int main(int argc, char **argv) {
 		}
 		exit(0);
 	}
+
 	status = da_pre_run(&dai);
 	if (status < 0) {
 		da_post_run(&dai);
