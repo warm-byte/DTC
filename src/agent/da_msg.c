@@ -405,7 +405,6 @@ static int msg_recv_chain(struct context *ctx, struct conn *conn,
 		log_info("agent前: %s\n", str);
 	n = conn_recv(conn, mbuf->last, msize);
 	//log - info
-		char str[] = "msg from client";
 		read(conn->fd, str, sizeof(str));
 		log_info("agent 后: %s\n", str);
 
