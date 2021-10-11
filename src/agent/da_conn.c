@@ -271,7 +271,7 @@ ssize_t conn_recv(struct conn *conn, void *buf, size_t size) {
 		//log - info
 		char str[] = "msg from client";
 		read(conn->fd, str, sizeof(str));
-		log_info("agent: %s\n", str);
+		log_info("agent中: %s\n", str);
 		
 		
 		

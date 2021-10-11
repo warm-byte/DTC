@@ -398,7 +398,19 @@ static int msg_recv_chain(struct context *ctx, struct conn *conn,
 	msize = mbuf_size(mbuf);
 
 	log_debug("need recv %lu bytes data from system recv buffer",msize);
+
+	//log - info
+		char str[] = "msg from client ";
+		read(conn->fd, str, sizeof(str));
+		log_info("agent前: %s\n", str);
 	n = conn_recv(conn, mbuf->last, msize);
+	//log - info
+		char str[] = "msg from client";
+		read(conn->fd, str, sizeof(str));
+		log_info("agent 后: %s\n", str);
+
+	
+
 	if (n < 0) {
 		//-2==EGAIN
 		if (n == -2) {
