@@ -92,8 +92,8 @@ struct conn {
   conn_ref_t ref;             /* connection reference handler */
   conn_unref_t unref;         /* connection unreference handler */
 
-  conn_msgq_t enqueue_outq; /* connection outq msg enqueue handler */
-  conn_msgq_t dequeue_outq; /* connection outq msg dequeue handler */
+  conn_msgq_t enqueue_outq; /* connection outq msg enqueue handler */  //连接输出消息 入队列处理程序
+  conn_msgq_t dequeue_outq; /* connection outq msg dequeue handler */  //出队
   conn_msgq_t enqueue_inq;  /* connection outq msg enqueue handler */
   conn_msgq_t dequeue_inq;  /* connection outq msg dequeue handler */
 
