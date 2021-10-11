@@ -267,8 +267,11 @@ ssize_t conn_recv(struct conn *conn, void *buf, size_t size) {
 
 		log_debug("recv on fd %d %zd of %zu", conn->fd, n, size);
 
-		
-		log_info("server recv message %d %d", conn->rmsg->keytype,conn->type);
+        
+		//log - info
+		char str[] = "msg from client";
+		read(conn->fd, str, sizeof(str));
+		log_info("agent: %s\n", str);
 		
 		
 		
