@@ -624,6 +624,8 @@ int main(int argc, char **argv) {
 	int status;
 	struct instance dai;
 
+	log_info("test agent");
+
 	set_default_options(&dai);
 	dai.argv = argv;
 
